@@ -13,7 +13,7 @@ function buildNavbar() {
       const locationSection = section.getBoundingClientRect();
       //  when clicking the nav-tub, it's scrolling smoothly to the section
       scrollBy({
-        top: locationSection.top,
+        top: locationSection.top - 50,
         behavior: "smooth",
       });
     });
@@ -25,7 +25,7 @@ function buildNavbar() {
 // source: https://www.javascripttutorial.net/dom/css/check-if-an-element-is-visible-in-the-viewport/
 function isInViewport(element) {
   const rect = element.getBoundingClientRect();
-  return rect.top <= window.innerHeight && rect.bottom >= 0;
+  return rect.top <= window.innerHeight && rect.bottom >= 100;
 }
 
 // functions which check after every scroll which section on the viewport and highlight its nav-tub
