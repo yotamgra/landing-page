@@ -62,6 +62,14 @@ function hamburgerMenu() {
   });
 } 
 
+function subscribe (){
+  const subscribeButton = document.querySelector('.subscribe-button');
+  subscribeButton.addEventListener('click', function() {
+    alert("Thank you!");
+  })
+
+}
+
 
 // -----------------Global Variables and functions calls:------------------
 // an arry of all the sections
@@ -78,3 +86,5 @@ const navTubs = document.querySelectorAll(".menu__link");
 updateAfterScroll();
 
 hamburgerMenu()
+
+subscribe ()
