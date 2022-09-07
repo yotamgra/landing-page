@@ -1,5 +1,4 @@
-// Functions:
-
+// ----------------------Functions:--------------------------
 // function which create the navbar
 function buildNavbar() {
   sections.forEach((section) => {
@@ -16,16 +15,12 @@ function buildNavbar() {
         top: locationSection.top - 50,
         behavior: "smooth",
       });
+      if (window.innerWidth < 600) {
+        navList.classList.add("hidden");
+      }
     });
     navList.appendChild(navTub);
   });
-}
-
-// functions which get as argument an element and return if it is in the viewport
-// source: https://www.javascripttutorial.net/dom/css/check-if-an-element-is-visible-in-the-viewport/
-function isInViewport(element) {
-  const rect = element.getBoundingClientRect();
-  return rect.top <= window.innerHeight && rect.bottom >= 100;
 }
 
 // functions which check after every scroll which section on the viewport and highlight its nav-tub
@@ -35,7 +30,7 @@ function updateAfterScroll() {
     for (let i = 0; i < sections.length; i++) {
       if (isInViewport(sections[i]) && stillSearching) {
         navTubs[i].className = "active-tub";
-        stillSearching = false
+        stillSearching = false;
       } else {
         navTubs[i].classList.remove("active-tub");
         navTubs[i].classList.add("menu__link");
@@ -44,29 +39,31 @@ function updateAfterScroll() {
   });
 }
 
-/**
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- *
- * Dependencies: None
- *
- * JS Version: ES2015/ES6
- *
- * JS Standard: ESlint
- *
- */
+// functions which get as argument an element and return if it is in the viewport
+// source: https://www.javascripttutorial.net/dom/css/check-if-an-element-is-visible-in-the-viewport/
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  // 100 because the height of the navbar
+  return rect.top <= window.innerHeight && rect.bottom >= 100;
+}
 
-/**
- * Comments should be present at the beginning of each procedure and class.
- * Great to have comments before crucial code sections within the procedure.
- */
+// function which activate the hamburger-menu for mobile
+/* source: https://www.w3schools.com/howto/howto_js_mobile_navbar.asp */
+function hamburgerMenu() {
+  const hamburgerMenu = document.querySelector(".hamburger-menu");
+  hamburgerMenu.addEventListener("click", function () {
+    if (!navList.classList.contains("hidden")) {
+      navList.classList.add("hidden");
+      navList.classList.remove("nav-display");
+    } else {
+      navList.classList.remove("hidden");
+      navList.classList.add("nav-display");
+    }
+  });
+} 
 
-/*
-             Global Variables
-            */
 
+// -----------------Global Variables and functions calls:------------------
 // an arry of all the sections
 const sections = document.querySelectorAll("section");
 
@@ -80,32 +77,4 @@ const navTubs = document.querySelectorAll(".menu__link");
 
 updateAfterScroll();
 
-/**
- * End Global Variables
- * Start Helper Functions
- *
- */
-
-/**
- * End Helper Functions
- * Begin Main Functions
- *
- */
-
-// build the nav
-
-// Add class 'active' to section when near top of viewport
-
-// Scroll to anchor ID using scrollTO event
-
-/**
- * End Main Functions
- * Begin Events
- *
- */
-
-// Build menu
-
-// Scroll to section on link click
-
-// Set sections as active
+hamburgerMenu()
