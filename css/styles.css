@@ -35,7 +35,6 @@ h1 {
     margin: 2em 4rem 1em;
   }
   .navbar__menu ul {
-    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -44,13 +43,11 @@ h1 {
   .hamburger-menu {
     display: none;
   }
-  
+
   .landing__container {
     max-width: 50em;
     padding: 4em;
-    
   }
-
 }
 
 h2 {
@@ -108,7 +105,7 @@ section {
   color: #000;
 }
 /* .navbar__menu .menu__link:hover  */
- .active-tub {
+.active-tub {
   background: #333;
   color: #fff;
   transition: ease 0.3s all;
@@ -159,8 +156,6 @@ section {
 }
 
 @media only screen and (min-width: 35em) {
-  
-
 }
 
 section:nth-of-type(even) .landing__container {
@@ -170,11 +165,9 @@ section:nth-of-type(even) .landing__container {
 }
 
 /* Subscribe Styles */
-section:nth-of-type(4)  {
+section:nth-of-type(4) {
   text-align: left;
 }
-
-
 
 /* Background Circles */
 /* Note that background circles are created with psuedo elements before and after */

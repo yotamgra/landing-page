@@ -60,16 +60,25 @@ function hamburgerMenu() {
       navList.classList.add("nav-display");
     }
   });
-} 
-
-function subscribe (){
-  const subscribeButton = document.querySelector('.subscribe-button');
-  subscribeButton.addEventListener('click', function() {
-    alert("Thank you!");
-  })
-
 }
 
+function subscribe() {
+  const formEl = document.querySelector("form");
+  console.log(formEl);
+  formEl.addEventListener("submit", function (event) {
+    event.preventDefault();
+    console.log("event");
+    console.log();
+    const inputDataArry = document.querySelectorAll("input");
+    console.log(inputDataArry);
+    const userObjData = {};
+    inputDataArry.forEach((input) => {
+    userObjData[input.name] = input.value;
+    });
+    dataBase.push(userObjData);
+    alert(`Thank you ${userObjData.name} !`);
+  });
+}
 
 // -----------------Global Variables and functions calls:------------------
 // an arry of all the sections
@@ -83,8 +92,11 @@ buildNavbar();
 // contain arry of all the li elements of the navbar-list
 const navTubs = document.querySelectorAll(".menu__link");
 
+// arry which contains objects, and each object contains user's form input
+const dataBase = [];
+
 updateAfterScroll();
 
-hamburgerMenu()
+hamburgerMenu();
 
-subscribe ()
+subscribe();
