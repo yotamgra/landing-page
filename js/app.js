@@ -28,11 +28,15 @@ function updateAfterScroll() {
   window.addEventListener("scroll", function () {
     let stillSearching = true;
     for (let i = 0; i < sections.length; i++) {
+      
+      console.log(headerSections[i]);
       if (isInViewport(sections[i]) && stillSearching) {
+        headerSections[i].classList.add("active-section");
         navTubs[i].className = "active-tub";
         stillSearching = false;
       } else {
         navTubs[i].classList.remove("active-tub");
+        headerSections[i].classList.remove("active-section")
         navTubs[i].classList.add("menu__link");
       }
     }
@@ -83,6 +87,9 @@ function subscribe() {
 // -----------------Global Variables and functions calls:------------------
 // an arry of all the sections
 const sections = document.querySelectorAll("section");
+
+// an arry of all the headers 0f the sections
+const headerSections = this.document.querySelectorAll('.header-section');
 
 // contain the ul navbar
 const navList = document.querySelector("#navbar__list");

@@ -87,7 +87,7 @@ section {
 
 .navbar__menu ul {
   padding-left: 0;
-  margin: 30px 0;
+  /* margin: 30px 0; */
   text-align: center;
 }
 
@@ -110,6 +110,12 @@ section {
   color: #fff;
   transition: ease 0.3s all;
   justify-content: center;
+}
+
+.active-section {
+  background-color: black;
+  padding: 0 10px;
+  border-radius: 20px;
 }
 
 .nav-display {
